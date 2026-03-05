@@ -18,8 +18,8 @@ int main() {
 
 	cout << "How many sudents?: ";
 	rosterSize = getUserNum();
-	
-// recur input for name and score == inputted roster size number
+
+	// recur input for name and score == inputted roster size number
 
 	name = studentName();
 	ofstream outFile("grades.txt", ios::app);
@@ -28,7 +28,7 @@ int main() {
 	ctime_s(dt, sizeof(dt), &now);
 	outFile << name << " logged in at " << dt;
 	outFile.close();
-	
+
 	cout << "Student's grade: ";
 	score = getUserNum();
 
@@ -40,7 +40,8 @@ int getUserNum() {
 
 	do
 	{
-		cin >> input;
+		cin >> input; // Trying to use the Auto-Cast, so getLine wont work
+
 
 		if (cin.fail())
 		{
@@ -56,9 +57,12 @@ int getUserNum() {
 
 string studentName() {
 	string name;
+	cin.ignore(); // Because of "cin >> input" adding a trailing newline, you need to add the ignore
 
 	cout << "Student's Name: " << endl;
 	getline(cin, name);
+
+	cout << name;
 
 	return name;
 }
@@ -66,6 +70,6 @@ string studentName() {
 double classAverage(int rosterSize, int total)
 {
 	double average;
-		average = total / rosterSize;
+	average = total / rosterSize;
 	return average;
 }
