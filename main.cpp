@@ -71,5 +71,7 @@ double classAverage(int rosterSize, int total)
 {
 	double average;
 	average = total / rosterSize;
+	cout <<"Class Grade Average: " << average << endl;
 	return average;
 }
+
