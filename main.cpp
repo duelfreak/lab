@@ -60,10 +60,12 @@ string studentName() {
 	cout << "Student's Name: " << endl;
 	getline(cin, name);
 
-	return string();
+	return name;
 }
 
-double classAverage(int rosterSize, int score)
+double classAverage(int rosterSize, int total)
 {
-	return 0.0;
+	double average;
+		average = total / rosterSize;
+	return average;
 }
