@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="GradeTrackerLab.vcxproj" Id="756cca21-00b5-403a-a81e-686394d83921" />
+</Solution>
