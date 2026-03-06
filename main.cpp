@@ -32,7 +32,7 @@ int main() {
 
 		cout << "Student's grade: ";
 		score = getUserNum();
-
+for (int i = 0; i < (rosterSize); i++);
 		score+=total;
 
 		ofstream outFile("grades.txt", ios::app);
@@ -104,3 +104,4 @@ double classAverage(int rosterSize, int total)
 
 	return average;
 }
+
