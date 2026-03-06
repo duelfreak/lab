@@ -25,25 +25,33 @@ int main() {
 		cout << "Invalid input. Try again.\n";
 		rosterSize;
 	}
-	
+
 // recur input for name and score == inputted roster size number
-	do {
-		name = studentName();
+
+	name = studentName();
+
+		cout << "Student's grade: ";
+		score = getUserNum();
+
+		score+=total;
+
 		ofstream outFile("grades.txt", ios::app);
 		time_t now = time(0);
 		char dt[26];  // required buffer size
 		ctime_s(dt, sizeof(dt), &now);
+
 		outFile << name << " logged in at " << dt;
+		outFile << score << "submitted at " << dt;
 		outFile.close();
+ 
+	
 
-		cout << "Student's grade: ";
-		score = getUserNum();
-		total++;
-	} while (rosterSize);
 
-	cout << "Student Grades Report\n";
-	cout << "---------------------\n";
-
+		for (int i = 0; 1 < (rosterSize); i++);
+		
+	cout << "Student Grades Report"<<endl;
+	cout << "---------------------"<<endl;
+	cout << name << "        " << score;
 	
 	classAverage(rosterSize, total);
 
@@ -74,8 +82,16 @@ string studentName() {
 	string name;
 	cin.ignore();
 
-	cout << "Student's Name: " << endl;
+	cout << "Student's Name: " ;
 	getline(cin, name);
+	if (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(10000, '\n');
+		cout << "Invalid input. Try again.\n";
+		getline(cin, name);
+		cin.ignore();
+	}
 
 	return name;
 }
