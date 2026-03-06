@@ -51,10 +51,10 @@ for (int i = 0; i < (rosterSize); i++);
 		
 	cout << "Student Grades Report"<<endl;
 	cout << "---------------------"<<endl;
-	cout << name << "        " << score;
+	
 	
 	classAverage(rosterSize, total);
-
+cout << name << ":         " << score;
 	return 0;
 }
 
@@ -99,9 +99,10 @@ string studentName() {
 double classAverage(int rosterSize, int total)
 {
 	double  average;
-	average = (total) / (rosterSize);
+	average = total / rosterSize;
 		cout << "Class Average: " << average << endl;
 
 	return average;
 }
+
 
