@@ -19,21 +19,22 @@ int main() {
 
 	cout << "How many sudents?: ";
 	rosterSize = getUserNum();
+
 	if (rosterSize > 20) {
 		cin.clear();
 		cin.ignore(10000, '\n');
 		cout << "Invalid input. Try again.\n";
 		rosterSize;
 	}
-
+	for (int i = 0; i <= rosterSize; i++);
 // recur input for name and score == inputted roster size number
 
 	name = studentName();
 
 		cout << "Student's grade: ";
 		score = getUserNum();
-for (int i = 0; i < (rosterSize); i++);
-		score+=total;
+
+		
 
 		ofstream outFile("grades.txt", ios::app);
 		time_t now = time(0);
@@ -43,18 +44,15 @@ for (int i = 0; i < (rosterSize); i++);
 		outFile << name << " logged in at " << dt;
 		outFile << score << "submitted at " << dt;
 		outFile.close();
- 
-	
-
-
-		for (int i = 0; 1 < (rosterSize); i++);
+		score += total;
+		
 		
 	cout << "Student Grades Report"<<endl;
 	cout << "---------------------"<<endl;
-	
+
 	
 	classAverage(rosterSize, total);
-cout << name << ":         " << score;
+	cout << name << ":       " << score;
 	return 0;
 }
 
@@ -99,10 +97,8 @@ string studentName() {
 double classAverage(int rosterSize, int total)
 {
 	double  average;
-	average = total / rosterSize;
+	static_cast<double>(average) = total / rosterSize;
 		cout << "Class Average: " << average << endl;
 
 	return average;
 }
-
-
