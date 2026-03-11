@@ -26,15 +26,36 @@ int main() {
 		cout << "Invalid input. Try again.\n";
 		rosterSize;
 	}
-	for (int i = 0; i <= rosterSize; i++);
+	for (int i = 0; i <= rosterSize; i++){
 // recur input for name and score == inputted roster size number
-
-	name = studentName();
-
+		cout << "Student's Name: " ;
+		name = studentName();
 		cout << "Student's grade: ";
 		score = getUserNum();
+	}
+		  // Create a text file
+  ofstream MyWriteFile("filename.txt");
 
-		
+  // Write to the file
+  MyWriteFile << "Files can be tricky, but it is fun enough!";
+ 
+  // Close the file
+  MyWriteFile.close();
+
+  // Create a text string, which is used to output the text file
+  string myText;
+
+  // Read from the text file
+  ifstream MyReadFile("filename.txt");
+
+  // Use a while loop together with the getline() function to read the file line by line
+  while (getline (MyReadFile, myText)) {
+    // Output the text from the file
+    cout << myText;
+  }
+
+  // Close the file
+  MyReadFile.close();
 
 		ofstream outFile("grades.txt", ios::app);
 		time_t now = time(0);
@@ -49,10 +70,12 @@ int main() {
 		
 	cout << "Student Grades Report"<<endl;
 	cout << "---------------------"<<endl;
-
-	
 	classAverage(rosterSize, total);
-	cout << name << ":       " << score;
+	for (i = 0; i<rosterSize, i++) {
+		cout << name << ":       " << score;
+	}
+	
+
 	return 0;
 }
 
@@ -80,7 +103,7 @@ string studentName() {
 	string name;
 	cin.ignore();
 
-	cout << "Student's Name: " ;
+
 	getline(cin, name);
 	if (cin.fail())
 	{
@@ -102,3 +125,4 @@ double classAverage(int rosterSize, int total)
 
 	return average;
 }
+
