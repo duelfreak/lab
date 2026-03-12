@@ -32,14 +32,8 @@ int main() {
 		score = getUserNum();
 		score += total;
 	}
-		//ofstream outFile("grades.txt", ios::app);
-	//	time_t now = time(0);
-	//	char dt[26];  // required buffer size
-	//	ctime_s(dt, sizeof(dt), &now);
-	//	outFile << name << " logged in at " << dt;
-	//	outFile << score << "submitted at " << dt;
-	//	outFile.close(); 
-	//	waiting to implement once the typed info prints correctly
+
+		//waiting to implement once the typed info prints correctly
 				
 	ifstream myfile("summary.txt");
 	if (myfile.is_open())
@@ -56,7 +50,16 @@ int main() {
 		}
 
 	}
-	else cout << "Unable to open file";
+else cout << "Unable to open file";
+
+	ofstream outFile("summary.txt", ios::app);
+	time_t now = time(0);
+	char dt[26];
+	ctime_s(dt, sizeof(dt), &now);
+	outFile << name << "logged in at " << dt;
+	outFile << score << "entered at " << dt;
+	outFile.close();
+
 
 	
 	return 0;
