@@ -41,12 +41,24 @@ int main() {
 	//	outFile.close(); 
 	//	waiting to implement once the typed info prints correctly
 				
-	cout << "Student Grades Report"<<endl;
-	cout << "---------------------"<<endl;
-	classAverage(rosterSize, total);
-	for (int i = 0; i < rosterSize; i++) {
-		cout << name[i] << ":       " << score[i]<<endl;
+	ifstream myfile("summary.txt");
+	if (myfile.is_open())
+	{
+		while (getline(myfile, name))
+		{
+			cout << "Student Grades Report" << endl;
+			cout << "---------------------" << endl;
+			classAverage(rosterSize, total);
+			for (int i = 0; i < rosterSize; i++) {
+				cout << name << ":       " << score << endl;
+			}
+			myfile.close();
+		}
+
 	}
+	else cout << "Unable to open file";
+
+	
 	return 0;
 }
 
